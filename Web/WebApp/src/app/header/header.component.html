@@ -1,0 +1,59 @@
+<div class="toolbar">
+  <mat-toolbar color="primary">
+    <mat-toolbar-row fxLayout="row"
+                     fxLayoutAlign="space-between center">
+      <div>
+        <button mat-button>
+          <mat-icon fxFlexOffset="1px" class="icon-hotel">hotel</mat-icon>
+          <span>COMO</span>
+
+        </button>
+      </div>
+      <div fxLayout="row"
+           fxLayoutAlign="space-between center"
+           *ngIf="!mediaDimensionXs">
+        <button mat-button (click)="navCheckList()">
+          <mat-icon>add_task</mat-icon>
+          <span>checklist</span>
+
+        </button>
+        <button mat-button [routerLink]="['/user/bob']">
+          <mat-icon>eco</mat-icon>
+          <span>flight_land</span>
+
+        </button>
+        <button mat-button [routerLink]="['/user/bob']">
+          <mat-icon>important_devices</mat-icon>
+          <span>important_devices</span>
+
+        </button>
+      </div>
+
+    </mat-toolbar-row>
+
+    <mat-toolbar-row *ngIf="mediaDimensionXs"
+                     fxLayout="row"
+                     fxLayoutAlign="space-around center">
+
+      <button mat-button>
+        <mat-icon fxHidden.xs="true">dashboard</mat-icon>
+      </button>
+      <button mat-button>
+        <mat-icon fxHidden.xs="true">flight_land</mat-icon>
+      </button>
+      <button mat-button>
+        <mat-icon fxShow.xs="true">important_devices</mat-icon>
+      </button>
+      <button mat-button>
+        <mat-icon fxHidden.xs="true">flight_land</mat-icon>
+      </button>
+      <button mat-button>
+        <mat-icon fxShow.xs="true">important_devices</mat-icon>
+      </button>
+
+    </mat-toolbar-row>
+
+
+  </mat-toolbar>
+</div>
+

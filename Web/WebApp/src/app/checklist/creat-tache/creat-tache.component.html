@@ -1,0 +1,22 @@
+<form [formGroup]="myForm"
+      fxLayout="column"
+      fxLayoutAlign="center center">
+  <mat-form-field class="matFormFieldTache">
+    <mat-label>Text tache</mat-label>
+    <!--<input matInput
+           type="text"
+           formControlName="nomCheckList"
+           cdkTextareaAutosize
+           cdkAutosizeMinRows="6">-->
+    <textarea matInput              
+              [matTextareaAutosize]="true"
+              formControlName="textTache">
+     </textarea>
+  </mat-form-field>
+  <button mat-raised-button
+          class="button-submit"
+          type="submit"
+          (click)="ajouterTache()">
+    <mat-icon>done_outline</mat-icon>
+  </button>
+</form>

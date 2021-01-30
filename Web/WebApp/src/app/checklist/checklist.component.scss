@@ -1,0 +1,22 @@
+.mat-list-option {
+  /*font: status-bar;*/
+  font-size: 1rem;
+  text-align: start;
+}
+
+.mat-list-option-gt-sm {
+  font-size: 0.5rem;
+  text-align: start;
+}
+
+.iconeCheckList{
+    margin-right: 3%;
+}
+
+.container-header-component {
+  /*position: sticky;
+  position: -webkit-sticky;*/ /* For macOS/iOS Safari */
+  /*top: 0;*/ /* Sets the sticky toolbar to be on top */
+  /*z-index: 800;*/ /* Ensure that your app's content doesn't overlap the toolbar */
+}
+

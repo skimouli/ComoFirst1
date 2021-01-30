@@ -1,0 +1,82 @@
+<div class="container-component"
+     fxLayout="column">
+  <div class="container-header-component"
+       fxFlexAlign="center">
+    <button mat-raised-button
+            (click)="openCreatCheckList()">
+      <mat-icon>add_box</mat-icon>
+      <span>ajouter checkList</span>
+    </button>
+  </div>
+
+  <mat-accordion multi="true"
+                 fxFlexFill>
+    <mat-expansion-panel *ngFor="let list of checklists"
+                         style="text-align: start;
+                       word-wrap: break-word;"
+                         [expanded]="true"
+                         hideToggle>
+      <mat-expansion-panel-header fxLayout="row"
+                                  fxLayoutAlign="space-around center">
+
+        <mat-panel-title>
+          <mat-icon class="iconeCheckList">done_all</mat-icon>
+        </mat-panel-title>
+        <mat-panel-description fxLayout="row"
+                               fxLayoutAlign="space-between center">
+          <span>{{list.nomCheckList}}</span>
+          <button mat-button
+                  [matMenuTriggerFor]="menuCheckList">
+            <mat-icon>arrow_drop_down</mat-icon>
+          </button>
+        </mat-panel-description>
+        <mat-menu #menuCheckList="matMenu">
+          <button mat-menu-item
+                  (click)="openCreatTache(list.id)">
+            rajouter tache
+          </button>
+          <button mat-menu-item
+                  (click)="deleteCheckList(list)">
+            sup checkList
+          </button>
+        </mat-menu>
+      </mat-expansion-panel-header>
+
+      <mat-selection-list #options (selectionChange)="selectionChange($event.option, list.id)">
+        <div class="list-container"
+             *ngFor="let tache of list.taches"
+             fxLayout="row"
+             fxFlexAlign="space-between center">
+          <button mat-button
+                  [matMenuTriggerFor]="menuTache">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+
+          <mat-list-option fxFlexOffset="1px"
+                           [value]="tache.id"
+                           [selected]="tache.active">
+            <span style="text-align: start;
+                 word-break: break-all;">
+              {{tache.text}}
+            </span>
+          </mat-list-option>
+          <mat-menu #menuTache="matMenu">
+            <button mat-menu-item
+                    (click)="deleteTache(list.id, tache.id)">
+              Suprimer tache
+              <mat-icon>clear</mat-icon>
+            </button>
+            <button mat-menu-item> Option 2 </button>
+          </mat-menu>
+
+        </div>
+
+      </mat-selection-list>
+
+    </mat-expansion-panel>
+    <br /><br />
+  </mat-accordion>
+</div>
+
+
+

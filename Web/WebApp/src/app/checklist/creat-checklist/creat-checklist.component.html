@@ -1,0 +1,69 @@
+<div class="component-container"
+     fxLayout="column">
+  <div class="title"
+       fxFlexAlign="center">
+    <span>
+      creation checklict
+    </span>
+    <br />
+    <br />
+  </div>
+  <div class="form-container"
+       fxFlexAlign="space-between">
+    <form [formGroup]="myForm">
+      <mat-form-field appearance="outline">
+        <mat-label>Nom de la checklist</mat-label>
+        <input matInput
+               formControlName="nomCheckList">
+      <!--  <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>-->
+        <!--<mat-hint>Hint</mat-hint>-->
+        <mat-error *ngIf="myForm.controls.nomCheckList.invalid">{{ getErrorMessage() }}</mat-error>
+      </mat-form-field>
+      <button mat-raised-button
+              class="button-submit"
+              type="submit"
+              (click)="ajouterCheckList()">
+        <mat-icon>done_outline</mat-icon>
+      </button>
+
+      <br>
+      <div formArrayName="taches">
+        <div *ngFor="let tache of taches.controls; let i=index">
+          <mat-form-field appearance="outline">
+            <mat-label>deatillez la tache</mat-label>
+            <input matInput
+                   formControlName="{{i}}"
+                   (keydown.enter)="creatTache()">
+           <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>-->
+           <!-- <mat-hint>Hint</mat-hint>-->
+          </mat-form-field>
+          <button mat-icon-button
+                  color="warn"
+                  (click)=deleteTache(i)>
+            <mat-icon>clear</mat-icon>
+          </button>
+
+        </div>
+
+
+      </div>
+      <button mat-raised-button
+              color="primary"
+              (click)="creatTache()">
+        <mat-icon>add_box</mat-icon>
+        <span>ajouter une nouvelle tache</span>
+      </button>
+      <!--<button mat-button
+          class="button-submit"
+          type="submit"
+          (click)="ajouterCheckList()">
+    <mat-icon>add</mat-icon>
+    <span>Ajouter la checklist</span>
+  </button>-->
+    </form>
+   
+  </div>
+</div>
+
+
+<!--[FormGroupe]="myForm"-->
