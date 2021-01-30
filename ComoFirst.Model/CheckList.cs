@@ -21,5 +21,6 @@ namespace ComoFirst.Model
 
         [InverseProperty("IdCheckListNavigation")]
         public virtual ICollection<CheckListTaches> CheckListTaches { get; set; }
+
     }
 }
