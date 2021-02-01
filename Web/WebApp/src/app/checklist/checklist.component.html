@@ -63,10 +63,14 @@
           <mat-menu #menuTache="matMenu">
             <button mat-menu-item
                     (click)="deleteTache(list.id, tache.id)">
-              Suprimer tache
+              <span> Suprimer tache</span>
               <mat-icon>clear</mat-icon>
             </button>
-            <button mat-menu-item> Option 2 </button>
+            <button mat-menu-item
+                    (click)="editTache(list.id, tache.id)">
+              <span> editer tache</span>
+              <mat-icon>mode</mat-icon>
+            </button>
           </mat-menu>
 
         </div>
