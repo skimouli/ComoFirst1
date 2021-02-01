@@ -82,5 +82,16 @@ namespace ComoFirst.BusinessService
             _context.SaveChanges();
         }
 
+        public void UpdateTacheText(int idTache, string nouveauText)
+        {
+            Taches tacheModifier = _context.Taches.Find(idTache);
+            if(tacheModifier != null)
+            tacheModifier.Text = nouveauText;            
+            _context.Taches.Update(tacheModifier);
+            _context.SaveChanges();
+            if (tacheModifier == null)
+                throw new System.Exception("la tache existe pas");
+        }
+
     }
 }

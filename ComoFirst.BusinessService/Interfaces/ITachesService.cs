@@ -13,5 +13,6 @@ namespace ComoFirst.BusinessService.Interfaces
         TachesViewModel AddTache(TachesViewModel tachesViewModel, int idCheckList);
         void DeleteTache(int idCheckList, int idTache);
         void DeleteTaches(List<int> idsTaches);
+        void UpdateTacheText(int idTache, string nouveauText);
     }
 }

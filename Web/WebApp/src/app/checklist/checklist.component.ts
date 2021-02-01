@@ -98,4 +98,8 @@ export class ChecklistComponent implements OnInit, OnDestroy {
     this.sub.forEach(x=> x.unsubscribe());
   }
 
+  editTache(listId, tacheId) {
+
+  }
+
 }
