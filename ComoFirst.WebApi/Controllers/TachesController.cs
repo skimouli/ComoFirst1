@@ -42,7 +42,7 @@ namespace ComoFirst.WebApi.Controllers
             _tachesService.DeleteTache(idCheckList, idTache);
         }
         [HttpPut("{idTache}")]
-        public void UpdateTacheText(int idTache, string nouveauText)
+        public void UpdateTacheText(int idTache, [FromBody] string nouveauText)
         {
             _tachesService.UpdateTacheText(idTache, nouveauText);
         }

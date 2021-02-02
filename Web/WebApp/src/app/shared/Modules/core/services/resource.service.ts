@@ -20,6 +20,10 @@ export class ResourceService {
     return this.httpClient.put(url, data, option);
   }
 
+  updateWithOutBody<T extends resource>(url: string, option?: any): Observable<any> {
+    return this.httpClient.put(url, option);
+  }
+
   delete<T extends resource>(url: string, option?: any): Observable<any> {
     return this.httpClient.delete(url, option);
   }
