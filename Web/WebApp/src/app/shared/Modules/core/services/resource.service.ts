@@ -21,12 +21,14 @@ export class ResourceService {
   }
 
   updateWithOutBody<T extends resource>(url: string, option?: any): Observable<any> {
+
     return this.httpClient.put<T>(url, option);
   }
 
   updateWithOutBody<T extends resource>(url: string, option?: any): Observable<any> {
     return this.httpClient.put(url, option);
   }
+
 
 
   delete<T extends resource>(url: string, option?: any): Observable<any> {
