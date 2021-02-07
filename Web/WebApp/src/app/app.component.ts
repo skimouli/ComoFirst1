@@ -9,8 +9,8 @@ import { Subscription } from 'rxjs';
 })
 export class AppComponent implements OnInit, OnDestroy {
   title = 'WebApp';
-  sybMediaObs: Subscription | any;
-  mediaDimensionXs: boolean | any;
+  sybMediaObs: Subscription;
+  mediaDimensionXs: boolean;
   constructor(private mediaObserver: MediaObserver,
     private mediachanges: MediaChange) {
   }
