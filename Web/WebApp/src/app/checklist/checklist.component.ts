@@ -103,5 +103,5 @@ export class ChecklistComponent implements OnInit, OnDestroy {
     tacheEditee.text = text;
     this.resourceService.updateWithOutBody('https://localhost:44363/Taches' + tacheId, { body: text });
   }
-   
+
 }
