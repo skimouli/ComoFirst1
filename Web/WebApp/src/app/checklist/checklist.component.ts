@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatListOption } from '@angular/material/list';
 import { Subscription } from 'rxjs';
-import { CheckList } from '../shared/Models';
+import { CheckList, Tache } from '../shared/Models';
 import { ResourceService } from '../shared/Modules/core/services/resource.service';
 import { CreatChecklistComponent } from './creat-checklist/creat-checklist.component';
 import { CreatTacheComponent } from './creat-tache/creat-tache.component';
@@ -14,7 +14,7 @@ import { CreatTacheComponent } from './creat-tache/creat-tache.component';
 })
 export class ChecklistComponent implements OnInit, OnDestroy {
   checklists: CheckList[] = [];
-  sub: Subscription[]=[]; 
+  sub: Subscription[] = [];
   constructor(private resourceService: ResourceService,
     private dialog: MatDialog) { }
 
@@ -98,5 +98,11 @@ export class ChecklistComponent implements OnInit, OnDestroy {
     this.sub.forEach(x=> x.unsubscribe());
   }
 
+  editTache(listId: number, tacheId: number, text: string) {
+    var tacheEditee: Tache = this.checklists.find(x => x.id === listId).taches.find(x => x.id === tacheId);
+    tacheEditee.text = text;
+    this.resourceService.updateWithOutBody('https://localhost:44363/Taches' + tacheId, { body: text });
+  }
+   
 
 }

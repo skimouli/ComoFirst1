@@ -31,7 +31,7 @@ namespace ComoFirst.WebApi.Controllers
         }
 
         [HttpPost("{idCheckList}")]
-        public ActionResult<TachesViewModel> AddTache([FromBody]TachesViewModel tachesViewModel, int idCheckList)
+        public ActionResult<TachesViewModel> AddTache([FromBody] TachesViewModel tachesViewModel, int idCheckList)
         {
             return Ok(_tachesService.AddTache(tachesViewModel, idCheckList));
         }
@@ -40,6 +40,11 @@ namespace ComoFirst.WebApi.Controllers
         public void DeleteTache(int idCheckList, int idTache)
         {
             _tachesService.DeleteTache(idCheckList, idTache);
+        }
+        [HttpPut("{idTache}")]
+        public void UpdateTacheText(int idTache, [FromBody] string nouveauText)
+        {
+            _tachesService.UpdateTacheText(idTache, nouveauText);
         }
     }
 }

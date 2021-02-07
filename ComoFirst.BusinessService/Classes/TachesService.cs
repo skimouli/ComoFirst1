@@ -61,12 +61,12 @@ namespace ComoFirst.BusinessService
         {
             _checkListTachesService.DeleteCheckListTache(idCheckList, idTache);
             var tacheSuprimee = _context.Taches.Find(idTache);
-            if(tacheSuprimee != null)
+            if (tacheSuprimee != null)
             {
                 _context.Remove(tacheSuprimee);
                 _context.SaveChanges();
             }
-            
+
         }
 
         public void DeleteTaches(List<int> idsTaches)
@@ -82,5 +82,17 @@ namespace ComoFirst.BusinessService
             _context.SaveChanges();
         }
 
+        public void UpdateTacheText(int idTache, string nouveauText)
+        {
+            Taches tacheModifier = _context.Taches.Find(idTache);
+            if (tacheModifier != null)
+            {
+                tacheModifier.Text = nouveauText;
+                _context.Taches.Update(tacheModifier);
+                _context.SaveChanges();
+            }
+            if (tacheModifier == null)
+                throw new System.Exception("la tache existe pas");
+        }
     }
 }

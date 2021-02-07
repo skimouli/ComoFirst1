@@ -28,7 +28,7 @@ namespace ComoFirst.WebApi.Controllers
         public ActionResult AddCheckList(CheckListViewModel checkListViewModel)
         {
             return Ok(_checkListService.AddCheckList(checkListViewModel));
-        }
+        } 
 
         [HttpDelete("{idCheckList}")]
         public void Delete(int idCheckList, [FromBody]List<int>idsTaches)
