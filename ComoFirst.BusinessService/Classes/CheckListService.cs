@@ -30,7 +30,7 @@ namespace ComoFirst.BusinessService.Classes
         }
         public IEnumerable<CheckListViewModel> GetAll()
         {
-
+            
             var checkList = _context.CheckList.Include(x => x.CheckListTaches).ThenInclude(x => x.IdTachesNavigation).ToList()
 
                 .Select(x =>

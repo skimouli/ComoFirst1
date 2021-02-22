@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace ComoFirst.WebApi.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class CheckListControler : Controller
     {
         public readonly ICheckListService _checkListService;

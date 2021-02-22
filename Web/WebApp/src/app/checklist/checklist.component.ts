@@ -15,8 +15,9 @@ import { CreatTacheComponent } from './creat-tache/creat-tache.component';
 export class ChecklistComponent implements OnInit, OnDestroy {
   checklists: CheckList[] = [];
   sub: Subscription[] = [];
+  ajoutercheckList: string = 'ajouter checkList';
   constructor(private resourceService: ResourceService,
-    private dialog: MatDialog) { }
+    public dialog: MatDialog) { }
 
 
   ngOnInit(): void {
@@ -98,10 +99,10 @@ export class ChecklistComponent implements OnInit, OnDestroy {
     this.sub.forEach(x=> x.unsubscribe());
   }
 
-  editTache(listId: number, tacheId: number, text: string) {
-    var tacheEditee: Tache = this.checklists.find(x => x.id === listId).taches.find(x => x.id === tacheId);
-    tacheEditee.text = text;
-    this.resourceService.updateWithOutBody('https://localhost:44363/Taches' + tacheId, { body: text });
+  editTache(listId: number, tacheId: number) {
+    //var tacheEditee: Tache = this.checklists.find(x => x.id === listId).taches.find(x => x.id === tacheId);
+    //tacheEditee.text = text;
+    //this.resourceService.updateWithOutBody('https://localhost:44363/Taches' + tacheId, { body: text });
   }
 
 }

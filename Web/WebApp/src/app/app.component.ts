@@ -11,8 +11,7 @@ export class AppComponent implements OnInit, OnDestroy {
   title = 'WebApp';
   sybMediaObs: Subscription;
   mediaDimensionXs: boolean;
-  constructor(private mediaObserver: MediaObserver,
-    private mediachanges: MediaChange) {
+  constructor(private mediaObserver: MediaObserver) {
   }
 
   ngOnInit(): void {

@@ -15,6 +15,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { LayoutModule } from './shared/Modules/layout/layout.module';
 import { CoreModule } from './shared/Modules/core/core.module';
 import { CreatTacheComponent } from './checklist/creat-tache/creat-tache.component';
+import { UpperCasePipe } from './pipe/uppercase.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +23,8 @@ import { CreatTacheComponent } from './checklist/creat-tache/creat-tache.compone
     ChecklistComponent,
     HeaderComponent,
     CreatChecklistComponent,
-    CreatTacheComponent 
+    CreatTacheComponent,
+    UpperCasePipe
   ],
   imports: [
     BrowserModule,
