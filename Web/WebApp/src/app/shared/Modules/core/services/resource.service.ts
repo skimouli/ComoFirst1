@@ -27,6 +27,7 @@ export class ResourceService {
 
 
 
+
   delete<T extends resource>(url: string, option?: any): Observable<any> {
     return this.httpClient.delete<T>(url, option);
   }
