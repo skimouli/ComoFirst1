@@ -22,7 +22,7 @@ export class CreatChecklistComponent implements OnInit {
   creatForm() {
     this.myForm = this.fb.group({
       nomCheckList: ['', Validators.required],
-      taches: new FormArray([new FormControl('', Validators.required)])
+      taches: this.fb.array([new FormControl('', Validators.required)])
     })
   }
 
