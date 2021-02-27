@@ -15,6 +15,7 @@ import { CreatTacheComponent } from './creat-tache/creat-tache.component';
 export class ChecklistComponent implements OnInit, OnDestroy {
   checklists: CheckList[] = [];
   sub: Subscription[] = [];
+  color: string='red'
   ajoutercheckList: string = 'ajouter checkList';
   constructor(private resourceService: ResourceService,
     public dialog: MatDialog) { }

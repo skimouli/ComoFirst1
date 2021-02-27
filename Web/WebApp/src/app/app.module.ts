@@ -16,6 +16,7 @@ import { LayoutModule } from './shared/Modules/layout/layout.module';
 import { CoreModule } from './shared/Modules/core/core.module';
 import { CreatTacheComponent } from './checklist/creat-tache/creat-tache.component';
 import { UpperCasePipe } from './pipe/uppercase.pipe';
+import { Colordirective } from './directive/color.directive';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +25,8 @@ import { UpperCasePipe } from './pipe/uppercase.pipe';
     HeaderComponent,
     CreatChecklistComponent,
     CreatTacheComponent,
-    UpperCasePipe
+    UpperCasePipe,
+    Colordirective
   ],
   imports: [
     BrowserModule,
