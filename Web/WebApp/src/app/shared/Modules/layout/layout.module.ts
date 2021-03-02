@@ -1,19 +1,24 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, UpperCasePipe } from '@angular/common';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from '../material.module';
-
+import { Colordirective } from './directive/color.directive';
+import { ReactiveFormsModule } from '@angular/forms';
+ 
 const exp = [
   CommonModule,
   FlexLayoutModule,
-  MaterialModule
+  MaterialModule,
+  ReactiveFormsModule
 ]
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    Colordirective],
   imports: [
-   ...exp
+    ...exp
   ],
-  exports:[...exp]
+  exports: [...exp,
+    Colordirective]
 })
 export class LayoutModule { }
