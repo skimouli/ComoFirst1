@@ -6,6 +6,7 @@ import { CheckList, Tache } from '../shared/Models';
 import { ResourceService } from '../shared/Modules/core/services/resource.service';
 import { CreatChecklistComponent } from './creat-checklist/creat-checklist.component';
 import { CreatTacheComponent } from './creat-tache/creat-tache.component';
+import { EdittexttacheComponent } from './edittexttache/edittexttache.component';
 
 @Component({
   selector: 'app-checklist',
@@ -100,10 +101,25 @@ export class ChecklistComponent implements OnInit, OnDestroy {
     this.sub.forEach(x=> x.unsubscribe());
   }
 
-  editTache(listId: number, tacheId: number) {
+  editTache(listId: number, idTache: number) {
     //var tacheEditee: Tache = this.checklists.find(x => x.id === listId).taches.find(x => x.id === tacheId);
     //tacheEditee.text = text;
     //this.resourceService.updateWithOutBody('https://localhost:44363/Taches' + tacheId, { body: text });
+    const dialogRef2 = this.dialog.open(EdittexttacheComponent, {
+      width: '450px',
+      height: '150px',
+      data: {
+        idTacheInput: idTache
+      }
+    });
+
+    const sub = dialogRef2.componentInstance.eventText.subscribe(
+      data => {
+        let tacheEditee: Tache = this.checklists.find(x => x.id === listId).taches.find(x => x.id === idTache);
+        tacheEditee.text = data;
+      });
+    this.dialog.afterAllClosed.subscribe(
+      d => sub.unsubscribe)
   }
 
 }

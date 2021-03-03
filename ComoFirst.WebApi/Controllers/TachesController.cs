@@ -3,7 +3,9 @@ using ComoFirst.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace ComoFirst.WebApi.Controllers
@@ -42,9 +44,14 @@ namespace ComoFirst.WebApi.Controllers
             _tachesService.DeleteTache(idCheckList, idTache);
         }
         [HttpPut("{idTache}")]
-        public void UpdateTacheText(int idTache, [FromBody] string nouveauText)
+        public async void UpdateTacheText(int idTache)
         {
-            _tachesService.UpdateTacheText(idTache, nouveauText);
+            string text;
+            using (StreamReader reader = new StreamReader(Request.Body, Encoding.UTF8))
+            {
+                text = await reader.ReadToEndAsync();
+            }
+            _tachesService.UpdateTacheText(idTache, text.ToString());
         }
     }
 }

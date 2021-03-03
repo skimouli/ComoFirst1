@@ -22,7 +22,6 @@ export class CreatTacheComponent implements OnInit {
 
   ngOnInit(): void {
     this.idCheckList = this.data;
-    console.log(this.data);
     this.creatForm();
   }
 
@@ -31,7 +30,7 @@ export class CreatTacheComponent implements OnInit {
       textTache: ['']
     });
   }
-  ajouterTache() {
+  OnClick() {
     this.tacheAjoutee = {
       active: false,
       text: this.myForm.get('textTache').value,
@@ -40,7 +39,6 @@ export class CreatTacheComponent implements OnInit {
     };
     this.resourceService.creat(this.tacheAjoutee, 'https://localhost:44363/Taches/' + this.data.idCheckList)
       .subscribe(data => {
-        console.log('success');
         this.creatTacheEvent.emit();
       });
   }
