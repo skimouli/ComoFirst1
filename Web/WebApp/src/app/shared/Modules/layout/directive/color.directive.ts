@@ -5,9 +5,13 @@ import { Directive, HostBinding, HostListener, Input } from '@angular/core';
 })
 
 export class Colordirective {
-  @Input('Backgroundcolor') data: string;
-  @HostBinding('style.backgroundColor') background: string;
-  @HostListener('click') click() {
-    this.background = this.data;
+  @Input('Backgroundcolor') data: any = {};
+  @HostBinding('style.backgroundColor') background: string = 'red';
+  @HostListener('mouseover') click() {
+    this.background = this.data.back;
+  }
+
+  @HostListener('mouseleave') click1() {
+    this.background = this.data.backl;
   }
 }

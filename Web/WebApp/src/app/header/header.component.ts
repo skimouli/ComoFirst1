@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -6,13 +6,15 @@ import { Router } from '@angular/router';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
   @Input() mediaDimensionXs: boolean | any;
   constructor(private router: Router) { }
 
-  ngOnInit(): void {
-  }
   navCheckList() {
-    this.router.navigate(['/checklist'])
+    this.router.navigate(['/checklist/list'])
+  }
+
+  navTest() {
+    this.router.navigate(['/form']);
   }
 }

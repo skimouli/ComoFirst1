@@ -4,6 +4,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from '../material.module';
 import { Colordirective } from './directive/color.directive';
 import { ReactiveFormsModule } from '@angular/forms';
+import { borderdirective } from './directive/bordercolor.directive';
+import { ConcatPipe } from './pipe/concat.pipe';
  
 const exp = [
   CommonModule,
@@ -14,11 +16,16 @@ const exp = [
 
 @NgModule({
   declarations: [
-    Colordirective],
+    Colordirective,
+    borderdirective,
+    ConcatPipe],
   imports: [
-    ...exp
+    ...exp,
+    
   ],
   exports: [...exp,
-    Colordirective]
+    Colordirective,
+    borderdirective,
+    ConcatPipe]
 })
 export class LayoutModule { }

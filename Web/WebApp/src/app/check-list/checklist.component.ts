@@ -1,7 +1,7 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatListOption } from '@angular/material/list';
-import { Subscription } from 'rxjs';
+import { fromEvent, Subscription } from 'rxjs';
 import { CheckList, Tache } from '../shared/Models';
 import { ResourceService } from '../shared/Modules/core/services/resource.service';
 import { CreatChecklistComponent } from './creat-checklist/creat-checklist.component';
@@ -21,9 +21,8 @@ export class ChecklistComponent implements OnInit, OnDestroy {
   constructor(private resourceService: ResourceService,
     public dialog: MatDialog) { }
 
-
   ngOnInit(): void {
-    this.initiateCheckList();
+    this.initiateCheckList();  
   }
   initiateCheckList() {
     const subFetch = this.resourceService.fetch<CheckList[]>('https://localhost:44363/CheckListControler')
@@ -33,6 +32,7 @@ export class ChecklistComponent implements OnInit, OnDestroy {
   }
 
   openCreatCheckList() {
+   
     const dialogRef = this.dialog.open(CreatChecklistComponent, {
       width: '450px',
       height: '300px'

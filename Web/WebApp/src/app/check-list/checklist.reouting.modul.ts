@@ -3,7 +3,7 @@ import { Router, RouterModule, Routes } from '@angular/router';
 import { ChecklistComponent } from './checklist.component';
 const routes: Routes = [
   {
-    path: 'checklist',
+    path: 'checklist/list',
     component: ChecklistComponent
   }
 ];

@@ -1,0 +1,8 @@
+<div>
+  <div>{{value2 | concaten : dddd : 'eeee'}}</div>
+  <input #input   type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+  <button type="button" class="btn btn-primary" (click)="click()">Primary</button>
+</div>
+
+<br />
+<app-test2 [valueInput]="value" (emiter)="AfterEvant($event)"></app-test2>

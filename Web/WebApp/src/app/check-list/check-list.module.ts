@@ -5,6 +5,7 @@ import { CreatChecklistComponent } from './creat-checklist/creat-checklist.compo
 import { LayoutModule } from '../shared/Modules/layout/layout.module';
 import { CoreModule } from '@angular/flex-layout';
 import { EdittexttacheComponent } from './edittexttache/edittexttache.component';
+import { CheckListRoutingModule } from './checklist.reouting.modul';
 @NgModule({
   declarations: [
     ChecklistComponent,
@@ -14,7 +15,8 @@ import { EdittexttacheComponent } from './edittexttache/edittexttache.component'
   ],
   imports: [
     LayoutModule,
-    CoreModule
+    CoreModule,
+    CheckListRoutingModule
   ]
 })
 export class CheckListModule { }

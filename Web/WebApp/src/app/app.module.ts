@@ -13,7 +13,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { LayoutModule } from './shared/Modules/layout/layout.module';
 import { CoreModule } from './shared/Modules/core/core.module';
 import { CheckListRoutingModule } from './check-list/checklist.reouting.modul';
-import { CheckListModule } from './check-list/check-list.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,8 +28,7 @@ import { CheckListModule } from './check-list/check-list.module';
     ReactiveFormsModule,
     LayoutModule,
     CoreModule,
-    CheckListRoutingModule,
-    CheckListModule
+    CheckListRoutingModule
   ],
   providers: [MediaChange,
     MediaObserver],
